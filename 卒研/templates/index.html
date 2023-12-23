@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>犬猫判断アプリ</title>
+</head>
+<body>
+    <h1>犬猫判断アプリ</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".png, .jpg, .jpeg, .gif">
+        <input type="submit" value="判断する">
+    </form>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    {% if filename %}
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+    {% endif %}
+</body>
+</html>
